@@ -1,5 +1,3 @@
-// express server login and register
-
 import express, { Request, Response } from "express";
 import * as bcrypt from "bcrypt";
 import { User, getUserModel } from "./User";
@@ -7,14 +5,14 @@ import { compare } from "bcrypt";
 import { generateJwtToken } from "./utils";
 import mongoose, { Model } from "mongoose";
 import { authorization } from "./authorizationMiddleware";
-import swagger from 'swagger-ui-express';
-import yaml from 'yamljs';
+import swagger from "swagger-ui-express";
+import yaml from "yamljs";
 const PORT = 3000;
 const index = express();
 
-const openapi = yaml.load('./openapi.yaml');
+const openapi = yaml.load("./openapi.yaml");
 
-index.use('/api-docs', swagger.serve, swagger.setup(openapi));
+index.use("/api-docs", swagger.serve, swagger.setup(openapi));
 
 index.use(express.json());
 
